@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book PR Truyện ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --rose:    #c9847a;
+  --rose-lt: #f5e8e6;
+  --rose-dk: #8c4f47;
+  --gold:    #c9a96e;
+  --gold-lt: #fdf6ec;
+  --ink:     #2a1f1a;
+  --ink-md:  #6b5248;
+  --ink-lt:  #b8a9a5;
+  --cream:   #faf7f4;
+  --white:   #ffffff;
+  --border:  #e8ddd9;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #fff5f4 0%, #fff9f5 40%, #fdf5fb 100%);
+  padding: 3.8rem 1.5rem 5.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Vòng tròn mờ nền */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,132,122,.13) 0%, transparent 70%);
+  top: -150px; left: -100px;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 350px; height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,.10) 0%, transparent 70%);
+  bottom: -80px; right: -60px;
+  pointer-events: none;
+}
+
+/* Cánh hoa SVG bay */
+.petals-wrap {
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: hidden;
+}
+.petal {
+  position: absolute;
+  opacity: 0;
+  animation: floatPetal linear infinite;
+}
+@keyframes floatPetal {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: 0; }
+  8%   { opacity: .85; }
+  50%  { transform: translateY(220px) translateX(30px) rotate(120deg); opacity: .75; }
+  90%  { opacity: .4; }
+  100% { transform: translateY(440px) translateX(-20px) rotate(260deg); opacity: 0; }
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(201,132,122,.1);
+  color: var(--rose-dk);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 1.6rem;
+  border: 1px solid rgba(201,132,122,.2);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: .5rem;
+  letter-spacing: -.01em;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose);
+  display: block;
+  font-size: 3.8rem;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--ink-md);
+  letter-spacing: .08em;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.hero p {
+  font-size: .88rem;
+  color: var(--ink-lt);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.hero-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin: 1.8rem auto 0;
+  max-width: 180px;
+}
+.hero-divider::before, .hero-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: rgba(201,132,122,.3);
+}
+.hero-divider span {
+  color: var(--rose); font-size: .85rem;
+}
+
+/* ── WAVE ── */
+.wave {
+  display: block;
+  margin-top: -2px;
+}
+
+/* ── FORM WRAP ── */
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+  position: relative;
+  top: -2rem;
+}
+
+/* ── SECTION CARD ── */
+.section-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--rose), var(--gold));
+  border-radius: 4px 0 0 4px;
+}
+
+.section-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 1.3rem;
+}
+.section-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--rose-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.section-label {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* ── FIELDS ── */
+.field { margin-bottom: 1.1rem; }
+.field:last-child { margin-bottom: 0; }
+
+label {
+  display: block;
+  font-size: .83rem;
+  font-weight: 600;
+  color: var(--ink-md);
+  margin-bottom: .45rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+label .req { color: var(--rose); margin-left: 2px; }
+label .hint { font-weight: 400; color: var(--ink-lt); font-size: .78rem; margin-left: 6px; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+  width: 100%;
+  padding: .65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: .9rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+}
+input:focus, textarea:focus {
+  border-color: var(--rose);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(201,132,122,.12);
+}
+textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
+
+/* ── TAGS ── */
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 5px; }
+.tag {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: .8rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--cream);
+  color: var(--ink-md);
+  transition: all .15s;
+  user-select: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+.tag:hover { border-color: var(--rose); color: var(--rose-dk); }
+.tag.on {
+  background: var(--rose-lt);
+  border-color: var(--rose);
+  color: var(--rose-dk);
+  font-weight: 500;
+}
+
+/* ── CHAR GRID ── */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.char-box {
+  background: var(--gold-lt);
+  border-radius: 12px;
+  padding: 1.1rem;
+  border: 1px solid rgba(201,169,110,.25);
+}
+.char-box-head {
+  display: flex; align-items: center; gap: 7px;
+  margin-bottom: 1rem;
+}
+.char-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+}
+.char-box h4 {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── EXCERPT ── */
+.excerpt-list { display: flex; flex-direction: column; gap: 8px; }
+.excerpt-item { display: flex; gap: 10px; align-items: flex-start; }
+.excerpt-num {
+  min-width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--rose-lt);
+  border: 1px solid rgba(201,132,122,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .72rem; color: var(--rose-dk);
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 8px; flex-shrink: 0;
+  font-weight: 600;
+}
+.excerpt-item textarea {
+  min-height: 64px;
+  font-family: 'Georgia', serif;
+  font-size: .88rem;
+  font-style: italic;
+  background: #fffcfa;
+}
+
+.add-more {
+  width: 100%; margin-top: 8px;
+  padding: 7px; font-size: .82rem;
+  border: 1px dashed rgba(201,132,122,.4);
+  border-radius: 10px; background: none;
+  color: var(--rose); cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all .12s;
+}
+.add-more:hover { background: var(--rose-lt); }
+
+hr.fancy {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 1.2rem 0;
+}
+
+/* ── QUOTE DECO ── */
+.quote-deco {
+  text-align: center;
+  font-size: 2.5rem;
+  color: rgba(201,132,122,.15);
+  line-height: 1;
+  margin-bottom: .3rem;
+  font-family: Georgia, serif;
+}
+
+/* ── ACTIONS ── */
+.actions {
+  display: flex; justify-content: flex-end;
+  gap: 10px; margin-top: 1.5rem;
+}
+.btn-reset {
+  padding: 10px 22px; border-radius: 10px;
+  border: 1px solid var(--border); background: none;
+  font-size: .88rem; color: var(--ink-lt); cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all .12s;
+}
+.btn-reset:hover { background: var(--cream); color: var(--ink-md); }
+.btn-submit {
+  padding: 10px 30px; border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--rose-dk) 0%, var(--rose) 100%);
+  font-size: .88rem; font-weight: 600;
+  color: #fff; cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: .03em;
+  transition: opacity .12s, transform .12s;
+  box-shadow: 0 4px 14px rgba(140,79,71,.25);
+}
+.btn-submit:hover { opacity: .9; transform: translateY(-1px); }
+.btn-submit:active { transform: translateY(0); }
+
+/* ── SUCCESS ── */
+.success {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.success h2 {
+  font-size: 1.5rem; font-weight: 400;
+  color: var(--rose-dk); margin-bottom: .6rem;
+}
+.success p {
+  color: var(--ink-md); font-size: .95rem;
+  font-family: 'Segoe UI', sans-serif; line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+.form-footer {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--ink-lt);
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 2rem;
+}
+
+@media (max-width: 520px) {
+  .pair { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.8rem; }
+  .section-card { padding: 1.2rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <!-- Cánh hoa đào bay -->
+  <div class="petals-wrap" id="petals"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">🌸 Book PR Truyện</div>
+    <h1>Kể mình nghe về<em>truyện của bạn</em></h1>
+    <p class="hero-sub">— Form đặt lịch nội dung PR —</p>
+    <p>Điền đầy đủ thông tin bên dưới để mình hiểu truyện<br>và chuẩn bị nội dung PR chỉn chu nhất cho bạn.</p>
+    <div class="hero-divider"><span>✿</span></div>
+  </div>
+</div>
+
+<svg class="wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;margin-top:-1px;">
+  <path d="M0,40 C360,0 1080,80 1440,20 L1440,60 L0,60 Z" fill="#faf7f4"/>
+</svg>
+
+<div class="form-wrap">
+  <form id="main-form" action="https://formspree.io/f/xkokaejz" method="POST">
+
+    <!-- 01 THỂ LOẠI -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-icon">📖</div>
+        <span class="section-label">01 — Thể loại</span>
+      </div>
+
+      <div class="field">
+        <label>Thể loại chính<span class="req">*</span></label>
+        <div class="tag-row" id="genre-wrap">
+          <span class="tag" data-name="the_loai">Cổ đại</span>
+          <span class="tag" data-name="the_loai">Hiện đại</span>
+          <span class="tag" data-name="the_loai">Cưới trước yêu sau</span>
+          <span class="tag" data-name="the_loai">Tu tiên / Huyền huyễn</span>
+          <span class="tag" data-name="the_loai">Cung đấu</span>
+          <span class="tag" data-name="the_loai">Cường thủ hào đoạt</span>
+          <span class="tag" data-name="the_loai">Trọng sinh</span>
+          <span class="tag" data-name="the_loai">Xuyên không</span>
+          <span class="tag" data-name="the_loai">Na9 điên</span>
+          <span class="tag" data-name="the_loai">Khác</span>
+        </div>
+        <input type="hidden" name="the_loai_chinh" id="the_loai_chinh">
+      </div>
+
+      <div class="field">
+        <label>Tag bổ sung<span class="hint">không bắt buộc</span></label>
+        <input type="text" name="tag_bo_sung" placeholder="VD: HE, ngược, sủng, 1v1, slow burn...">
+      </div>
+    </div>
+
+    <!-- 02 & 03 NHÂN VẬT -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-icon">🪷</div>
+        <span class="section-label">02 & 03 — Nhân vật chính</span>
+      </div>
+
+      <div class="pair">
+        <div class="char-box">
+          <div class="char-box-head">
+            <div class="char-dot"></div>
+            <h4>Nam chính</h4>
+          </div>
+          <div class="field">
+            <label>Tên<span class="req">*</span></label>
+            <input type="text" name="ten_nam_chinh" required placeholder="Nhập tên nhân vật">
+          </div>
+          <div class="field">
+            <label>Xuất thân / danh phận</label>
+            <input type="text" name="xuat_than_nam" placeholder="VD: Hoàng tử, CEO...">
+          </div>
+          <div class="field">
+            <label>Công việc / chức vụ</label>
+            <input type="text" name="chuc_vu_nam" placeholder="VD: Đại tướng quân...">
+          </div>
+          <div class="field">
+            <label>Tính cách</label>
+            <textarea name="tinh_cach_nam" placeholder="Lạnh lùng, bá đạo, chiều vợ ngầm..."></textarea>
+          </div>
+        </div>
+        <div class="char-box">
+          <div class="char-box-head">
+            <div class="char-dot"></div>
+            <h4>Nữ chính</h4>
+          </div>
+          <div class="field">
+            <label>Tên<span class="req">*</span></label>
+            <input type="text" name="ten_nu_chinh" required placeholder="Nhập tên nhân vật">
+          </div>
+          <div class="field">
+            <label>Xuất thân / danh phận</label>
+            <input type="text" name="xuat_than_nu" placeholder="VD: Tiểu thư, bình dân...">
+          </div>
+          <div class="field">
+            <label>Công việc / chức vụ</label>
+            <input type="text" name="chuc_vu_nu" placeholder="VD: Y nữ, họa sĩ...">
+          </div>
+          <div class="field">
+            <label>Tính cách</label>
+            <textarea name="tinh_cach_nu" placeholder="Cứng đầu, giả ngốc..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <hr class="fancy">
+
+      <div class="field">
+        <label>Mối quan hệ khởi đầu<span class="hint">không bắt buộc</span></label>
+        <div class="tag-row">
+          <span class="tag" data-name="quan_he">Thù địch → yêu</span>
+          <span class="tag" data-name="quan_he">Hôn ước</span>
+          <span class="tag" data-name="quan_he">Xa lạ gặp nhau</span>
+          <span class="tag" data-name="quan_he">Chủ — tớ</span>
+          <span class="tag" data-name="quan_he">Sư — đồ</span>
+          <span class="tag" data-name="quan_he">Thanh mai trúc mã</span>
+          <span class="tag" data-name="quan_he" id="tag-quan-he-khac">Khác</span>
+        </div>
+        <input type="hidden" name="quan_he_khoi_dau" id="quan_he_khoi_dau">
+        <input type="text" name="quan_he_khac" id="quan_he_khac" placeholder="Mô tả mối quan hệ khởi đầu..." style="display:none;margin-top:8px;">
+      </div>
+    </div>
+
+    <!-- 04 TRÍCH DẪN -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-icon">✍️</div>
+        <span class="section-label">04 — Trích dẫn hấp dẫn</span>
+      </div>
+
+      <div class="quote-deco">"</div>
+
+      <div class="field">
+        <label>Dán 2–4 đoạn bạn thích nhất<span class="req">*</span><span class="hint">nguyên văn hoặc dịch thô đều được</span></label>
+        <div class="excerpt-list" id="excerpts">
+          <div class="excerpt-item">
+            <div class="excerpt-num">1</div>
+            <textarea name="trich_dan_1" required placeholder="Câu thoại, cảnh ngược, cảnh sủng... bất kỳ đoạn nào khiến bạn thấy hay"></textarea>
+          </div>
+          <div class="excerpt-item">
+            <div class="excerpt-num">2</div>
+            <textarea name="trich_dan_2" required placeholder="Đoạn trích 2"></textarea>
+          </div>
+        </div>
+        <button type="button" class="add-more" id="add-excerpt">+ Thêm đoạn trích</button>
+      </div>
+
+      <div class="field">
+        <label>Mood chủ đạo<span class="hint">không bắt buộc</span></label>
+        <div class="tag-row">
+          <span class="tag" data-name="mood">Ngọt sủng</span>
+          <span class="tag" data-name="mood">Ngược ngọt</span>
+          <span class="tag" data-name="mood">Thuần ngược</span>
+          <span class="tag" data-name="mood">Hài hước</span>
+          <span class="tag" data-name="mood">Đánh não</span>
+          <span class="tag" data-name="mood">Kịch tính cao</span>
+          <span class="tag" data-name="mood">Slow burn</span>
+        </div>
+        <input type="hidden" name="mood" id="mood_val">
+      </div>
+    </div>
+
+    <!-- 05 CỐT TRUYỆN -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-icon">📜</div>
+        <span class="section-label">05 — Tóm tắt cốt truyện</span>
+      </div>
+
+      <div class="field">
+        <label>Tóm tắt 3–5 câu<span class="req">*</span><span class="hint">ai, làm gì, xung đột chính</span></label>
+        <textarea name="tom_tat" required rows="4" placeholder="VD: Nữ chính là y nữ bình thường vô tình cứu nam chính — đại tướng quân đang bị truy sát. Hai người giả phu thê để qua mắt kẻ thù..."></textarea>
+      </div>
+      <div class="field">
+        <label>Kết truyện<span class="req">*</span></label>
+        <div class="tag-row">
+          <span class="tag" data-name="ket_truyen" data-single="true">HE — Happy Ending</span>
+          <span class="tag" data-name="ket_truyen" data-single="true">BE — Bad Ending</span>
+          <span class="tag" data-name="ket_truyen" data-single="true">Open Ending</span>
+          <span class="tag" data-name="ket_truyen" data-single="true">Chưa rõ / đang ra chương</span>
+        </div>
+        <input type="hidden" name="ket_truyen" id="ket_truyen_val">
+      </div>
+      <div class="field">
+        <label>Số chương / độ dài<span class="hint">không bắt buộc</span></label>
+        <input type="text" name="so_chuong" placeholder="VD: 120 chương, còn 80 chương chưa dịch...">
+      </div>
+    </div>
+
+    <!-- 06 GHI CHÚ -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-icon">💌</div>
+        <span class="section-label">06 — Thông tin liên hệ</span>
+      </div>
+
+      <div class="field">
+        <label>Email liên hệ<span class="req">*</span></label>
+        <input type="email" name="email" required placeholder="email@example.com">
+      </div>
+      <div class="field">
+        <label>Yêu cầu / lưu ý đặc biệt<span class="hint">không bắt buộc</span></label>
+        <textarea name="ghi_chu" placeholder="Tone bài, deadline, lưu ý khác..."></textarea>
+      </div>
+      <div class="field">
+        <label>Link truyện<span class="hint">không bắt buộc</span></label>
+        <input type="url" name="link_truyen" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-reset" onclick="resetForm()">Làm mới</button>
+      <button type="submit" class="btn-submit">Gửi thông tin ✦</button>
+    </div>
+
+  </form>
+
+  <div class="success" id="success-msg">
+    <div class="success-icon">🌸</div>
+    <h2>Đã nhận thông tin!</h2>
+    <p>Cảm ơn bạn đã gửi thông tin về truyện.<br>Mình sẽ liên hệ lại sớm nhất có thể ✦</p>
+  </div>
+
+  <div class="form-footer">✦ Book PR Truyện ✦</div>
+</div>
+
+<script>
+// ── Cánh hoa đào rơi từ trên xuống ─────────────────────────
+(function() {
+  var wrap = document.getElementById('petals');
+
+  // SVG cánh hoa đào thật — hình trái tim có khía đỉnh
+  var colors = [
+    'rgba(240,160,155,A)', // hồng đậm
+    'rgba(250,195,190,A)', // hồng nhạt
+    'rgba(235,140,145,A)', // hồng đỏ nhẹ
+    'rgba(252,210,205,A)', // hồng kem
+  ];
+
+  // Path cánh hoa đào (1 cánh đơn, hình trái tim có khía trên đỉnh)
+  var petalPaths = [
+    // cánh tròn đầy — hình đào cổ điển
+    'M12,2 C12,2 8,0 5,3 C2,6 2,11 6,14 C8,16 12,18 12,18 C12,18 16,16 18,14 C22,11 22,6 19,3 C16,0 12,2 12,2 Z',
+    // cánh hơi dài hơn
+    'M10,1 C10,1 6,0 4,4 C2,8 3,13 7,16 C9,18 10,20 10,20 C10,20 11,18 13,16 C17,13 18,8 16,4 C14,0 10,1 10,1 Z',
+    // cánh nhỏ hơn, tròn
+    'M9,2 C9,2 5,1 3,4 C1,7 2,12 6,14 C8,15 9,17 9,17 C9,17 10,15 12,14 C16,12 17,7 15,4 C13,1 9,2 9,2 Z',
+  ];
+  var viewBoxes = ['0 0 24 20', '0 0 20 22', '0 0 18 19'];
+  var sizes = [16, 14, 12, 18, 13];
+
+  for (var i = 0; i < 18; i++) {
+    var div = document.createElement('div');
+    div.className = 'petal';
+
+    var ci    = i % colors.length;
+    var pi    = i % petalPaths.length;
+    var sz    = sizes[i % sizes.length];
+    var alpha = (0.55 + Math.random() * 0.35).toFixed(2);
+    var color = colors[ci].replace('A', alpha);
+
+    div.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="' + viewBoxes[pi] + '" fill="none" xmlns="http://www.w3.org/2000/svg">'
+      + '<path d="' + petalPaths[pi] + '" fill="' + color + '"/>'
+      + '</svg>';
+
+    // rơi từ trên xuống: top âm, rải đều ngang
+    div.style.left   = (Math.random() * 105 - 2) + '%';
+    div.style.top    = '-30px';
+    div.style.animationDuration = (6 + Math.random() * 6) + 's';
+    div.style.animationDelay    = (Math.random() * 10) + 's';
+    wrap.appendChild(div);
+  }
+})();
+
+document.querySelectorAll('.tag').forEach(function(tag) {
+  tag.addEventListener('click', function() {
+    var name = this.dataset.name;
+    var isSingle = this.dataset.single === 'true';
+    if (isSingle) {
+      document.querySelectorAll('.tag[data-name="' + name + '"]').forEach(function(t) { t.classList.remove('on'); });
+    }
+    this.classList.toggle('on');
+    syncHidden(name);
+  });
+});
+
+document.getElementById('tag-quan-he-khac').addEventListener('click', function() {
+  var inp = document.getElementById('quan_he_khac');
+  setTimeout(function() {
+    var isOn = document.getElementById('tag-quan-he-khac').classList.contains('on');
+    inp.style.display = isOn ? 'block' : 'none';
+    if (!isOn) inp.value = '';
+  }, 10);
+});
+
+function syncHidden(name) {
+  var selected = [];
+  document.querySelectorAll('.tag[data-name="' + name + '"].on').forEach(function(t) {
+    selected.push(t.textContent.trim());
+  });
+  var map = { 'the_loai':'the_loai_chinh', 'quan_he':'quan_he_khoi_dau', 'mood':'mood_val', 'ket_truyen':'ket_truyen_val' };
+  var el = document.getElementById(map[name]);
+  if (el) el.value = selected.join(', ');
+}
+
+var excerptCount = 2;
+document.getElementById('add-excerpt').addEventListener('click', function() {
+  if (excerptCount >= 5) return;
+  excerptCount++;
+  var list = document.getElementById('excerpts');
+  var item = document.createElement('div');
+  item.className = 'excerpt-item';
+  item.innerHTML = '<div class="excerpt-num">' + excerptCount + '</div><textarea name="trich_dan_' + excerptCount + '" placeholder="Đoạn trích ' + excerptCount + '"></textarea>';
+  list.appendChild(item);
+  if (excerptCount >= 5) this.style.display = 'none';
+});
+
+document.getElementById('main-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  fetch(form.action, {
+    method: 'POST', body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(res) {
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else { alert('Có lỗi xảy ra, vui lòng thử lại!'); }
+  }).catch(function() { alert('Mất kết nối, vui lòng thử lại!'); });
+});
+
+function resetForm() {
+  document.getElementById('main-form').reset();
+  document.querySelectorAll('.tag').forEach(function(t) { t.classList.remove('on'); });
+  ['the_loai_chinh','quan_he_khoi_dau','mood_val','ket_truyen_val'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.value = '';
+  });
+  document.getElementById('quan_he_khac').style.display = 'none';
+  var list = document.getElementById('excerpts');
+  while (list.children.length > 2) list.lastChild.remove();
+  excerptCount = 2;
+  document.getElementById('add-excerpt').style.display = '';
+}
+</script>
+</body>
+</html>
