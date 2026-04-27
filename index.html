@@ -411,7 +411,7 @@ hr.fancy {
 </svg>
 
 <div class="form-wrap">
-  <form id="main-form" action="https://formspree.io/f/xkokaejz" method="POST">
+  <form id="main-form" method="POST">
 
     <!-- 01 THỂ LOẠI -->
     <div class="section-card">
@@ -709,19 +709,34 @@ document.getElementById('add-excerpt').addEventListener('click', function() {
   if (excerptCount >= 5) this.style.display = 'none';
 });
 
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwq5rkT8azBlx9R35wk1tM3VRpGY4WQwgn8zBNMHE23yCq6u95MLdU3sdiw1kKEVOM8Ug/exec';
+
 document.getElementById('main-form').addEventListener('submit', function(e) {
   e.preventDefault();
   var form = this;
-  fetch(form.action, {
-    method: 'POST', body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  }).then(function(res) {
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById('success-msg').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else { alert('Có lỗi xảy ra, vui lòng thử lại!'); }
-  }).catch(function() { alert('Mất kết nối, vui lòng thử lại!'); });
+  var btn = form.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Đang gửi...';
+
+  // Chuyển FormData thành JSON object
+  var fd = new FormData(form);
+  var data = {};
+  fd.forEach(function(value, key) { data[key] = value; });
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
+  }).then(function() {
+    form.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Gửi thông tin ✦';
+    alert('Mất kết nối, vui lòng thử lại!');
+  });
 });
 
 function resetForm() {
