@@ -39,7 +39,6 @@ body {
   overflow: hidden;
 }
 
-/* Vòng tròn mờ nền */
 .hero::before {
   content: '';
   position: absolute;
@@ -59,7 +58,6 @@ body {
   pointer-events: none;
 }
 
-/* Cánh hoa SVG bay */
 .petals-wrap {
   position: absolute; inset: 0;
   pointer-events: none; overflow: hidden;
@@ -142,13 +140,11 @@ body {
   color: var(--rose); font-size: .85rem;
 }
 
-/* ── WAVE ── */
 .wave {
   display: block;
   margin-top: -2px;
 }
 
-/* ── FORM WRAP ── */
 .form-wrap {
   max-width: 680px;
   margin: 0 auto;
@@ -157,7 +153,6 @@ body {
   top: -2rem;
 }
 
-/* ── SECTION CARD ── */
 .section-card {
   background: var(--white);
   border-radius: 16px;
@@ -197,7 +192,6 @@ body {
   font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-/* ── FIELDS ── */
 .field { margin-bottom: 1.1rem; }
 .field:last-child { margin-bottom: 0; }
 
@@ -234,7 +228,6 @@ input:focus, textarea:focus {
 }
 textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
 
-/* ── TAGS ── */
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 5px; }
 .tag {
   padding: 5px 14px;
@@ -256,7 +249,6 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
   font-weight: 500;
 }
 
-/* ── CHAR GRID ── */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .char-box {
   background: var(--gold-lt);
@@ -281,7 +273,6 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* ── EXCERPT ── */
 .excerpt-list { display: flex; flex-direction: column; gap: 8px; }
 .excerpt-item { display: flex; gap: 10px; align-items: flex-start; }
 .excerpt-num {
@@ -321,7 +312,6 @@ hr.fancy {
   margin: 1.2rem 0;
 }
 
-/* ── QUOTE DECO ── */
 .quote-deco {
   text-align: center;
   font-size: 2.5rem;
@@ -331,7 +321,6 @@ hr.fancy {
   font-family: Georgia, serif;
 }
 
-/* ── ACTIONS ── */
 .actions {
   display: flex; justify-content: flex-end;
   gap: 10px; margin-top: 1.5rem;
@@ -358,7 +347,6 @@ hr.fancy {
 .btn-submit:hover { opacity: .9; transform: translateY(-1px); }
 .btn-submit:active { transform: translateY(0); }
 
-/* ── SUCCESS ── */
 .success {
   display: none;
   text-align: center;
@@ -374,7 +362,6 @@ hr.fancy {
   font-family: 'Segoe UI', sans-serif; line-height: 1.7;
 }
 
-/* ── FOOTER ── */
 .form-footer {
   text-align: center;
   font-size: .78rem;
@@ -394,9 +381,7 @@ hr.fancy {
 
 <!-- HERO -->
 <div class="hero">
-  <!-- Cánh hoa đào bay -->
   <div class="petals-wrap" id="petals"></div>
-
   <div class="hero-inner">
     <div class="hero-badge">🌸 Book PR Truyện</div>
     <h1>Kể mình nghe về<em>truyện của bạn</em></h1>
@@ -419,7 +404,6 @@ hr.fancy {
         <div class="section-icon">📖</div>
         <span class="section-label">01 — Thể loại</span>
       </div>
-
       <div class="field">
         <label>Thể loại chính<span class="req">*</span></label>
         <div class="tag-row" id="genre-wrap">
@@ -431,12 +415,14 @@ hr.fancy {
           <span class="tag" data-name="the_loai">Cường thủ hào đoạt</span>
           <span class="tag" data-name="the_loai">Trọng sinh</span>
           <span class="tag" data-name="the_loai">Xuyên không</span>
-          <span class="tag" data-name="the_loai">Na9 điên</span>
+          <span class="tag" data-name="the_loai">Nam điên</span>
+          <span class="tag" data-name="the_loai">Truy thê hoả táng tràng</span>
+          <span class="tag" data-name="the_loai">Trước ngược nữ sau ngược nam</span>
+          <span class="tag" data-name="the_loai">Ngược nam</span>
           <span class="tag" data-name="the_loai">Khác</span>
         </div>
         <input type="hidden" name="the_loai_chinh" id="the_loai_chinh">
       </div>
-
       <div class="field">
         <label>Tag bổ sung<span class="hint">không bắt buộc</span></label>
         <input type="text" name="tag_bo_sung" placeholder="VD: HE, ngược, sủng, 1v1, slow burn...">
@@ -449,13 +435,9 @@ hr.fancy {
         <div class="section-icon">🪷</div>
         <span class="section-label">02 & 03 — Nhân vật chính</span>
       </div>
-
       <div class="pair">
         <div class="char-box">
-          <div class="char-box-head">
-            <div class="char-dot"></div>
-            <h4>Nam chính</h4>
-          </div>
+          <div class="char-box-head"><div class="char-dot"></div><h4>Nam chính</h4></div>
           <div class="field">
             <label>Tên<span class="req">*</span></label>
             <input type="text" name="ten_nam_chinh" required placeholder="Nhập tên nhân vật">
@@ -474,10 +456,7 @@ hr.fancy {
           </div>
         </div>
         <div class="char-box">
-          <div class="char-box-head">
-            <div class="char-dot"></div>
-            <h4>Nữ chính</h4>
-          </div>
+          <div class="char-box-head"><div class="char-dot"></div><h4>Nữ chính</h4></div>
           <div class="field">
             <label>Tên<span class="req">*</span></label>
             <input type="text" name="ten_nu_chinh" required placeholder="Nhập tên nhân vật">
@@ -496,9 +475,7 @@ hr.fancy {
           </div>
         </div>
       </div>
-
       <hr class="fancy">
-
       <div class="field">
         <label>Mối quan hệ khởi đầu<span class="hint">không bắt buộc</span></label>
         <div class="tag-row">
@@ -521,9 +498,7 @@ hr.fancy {
         <div class="section-icon">✍️</div>
         <span class="section-label">04 — Trích dẫn hấp dẫn</span>
       </div>
-
       <div class="quote-deco">"</div>
-
       <div class="field">
         <label>Dán 2–4 đoạn bạn thích nhất<span class="req">*</span><span class="hint">nguyên văn hoặc dịch thô đều được</span></label>
         <div class="excerpt-list" id="excerpts">
@@ -538,7 +513,6 @@ hr.fancy {
         </div>
         <button type="button" class="add-more" id="add-excerpt">+ Thêm đoạn trích</button>
       </div>
-
       <div class="field">
         <label>Mood chủ đạo<span class="hint">không bắt buộc</span></label>
         <div class="tag-row">
@@ -549,8 +523,10 @@ hr.fancy {
           <span class="tag" data-name="mood">Đánh não</span>
           <span class="tag" data-name="mood">Kịch tính cao</span>
           <span class="tag" data-name="mood">Slow burn</span>
+          <span class="tag" data-name="mood" id="tag-mood-khac">Khác</span>
         </div>
         <input type="hidden" name="mood" id="mood_val">
+        <input type="text" name="mood_khac" id="mood_khac" placeholder="Mô tả mood khác..." style="display:none;margin-top:8px;">
       </div>
     </div>
 
@@ -560,20 +536,22 @@ hr.fancy {
         <div class="section-icon">📜</div>
         <span class="section-label">05 — Tóm tắt cốt truyện</span>
       </div>
-
       <div class="field">
         <label>Tóm tắt 3–5 câu<span class="req">*</span><span class="hint">ai, làm gì, xung đột chính</span></label>
-        <textarea name="tom_tat" required rows="4" placeholder="VD: Nữ chính là y nữ bình thường vô tình cứu nam chính — đại tướng quân đang bị truy sát. Hai người giả phu thê để qua mắt kẻ thù..."></textarea>
+        <textarea name="tom_tat" required rows="4" placeholder="VD: Nữ chính là y nữ bình thường vô tình cứu nam chính — đại tướng quân đang bị truy sát..."></textarea>
       </div>
       <div class="field">
         <label>Kết truyện<span class="req">*</span></label>
         <div class="tag-row">
           <span class="tag" data-name="ket_truyen" data-single="true">HE — Happy Ending</span>
           <span class="tag" data-name="ket_truyen" data-single="true">BE — Bad Ending</span>
-          <span class="tag" data-name="ket_truyen" data-single="true">Open Ending</span>
+          <span class="tag" data-name="ket_truyen" data-single="true">SE — Sad Ending</span>
+          <span class="tag" data-name="ket_truyen" data-single="true">OE — Open Ending</span>
           <span class="tag" data-name="ket_truyen" data-single="true">Chưa rõ / đang ra chương</span>
+          <span class="tag" data-name="ket_truyen" data-single="true" id="tag-ket-khac">Khác</span>
         </div>
         <input type="hidden" name="ket_truyen" id="ket_truyen_val">
+        <input type="text" name="ket_truyen_khac" id="ket_truyen_khac" placeholder="VD: 2 kết cục chính văn HE ngoại truyện BE..." style="display:none;margin-top:8px;">
       </div>
       <div class="field">
         <label>Số chương / độ dài<span class="hint">không bắt buộc</span></label>
@@ -587,7 +565,6 @@ hr.fancy {
         <div class="section-icon">💌</div>
         <span class="section-label">06 — Thông tin liên hệ</span>
       </div>
-
       <div class="field">
         <label>Tên Facebook<span class="req">*</span></label>
         <input type="text" name="ten_facebook" required placeholder="Tên Facebook của bạn">
@@ -597,8 +574,8 @@ hr.fancy {
         <textarea name="ghi_chu" placeholder="Tone bài, deadline, lưu ý khác..."></textarea>
       </div>
       <div class="field">
-        <label>Link truyện<span class="hint">không bắt buộc</span></label>
-        <input type="url" name="link_truyen" placeholder="https://...">
+        <label>Link truyện<span class="req">*</span></label>
+        <input type="url" name="link_truyen" required placeholder="https://...">
       </div>
     </div>
 
@@ -619,53 +596,42 @@ hr.fancy {
 </div>
 
 <script>
-// ── Cánh hoa đào rơi từ trên xuống ─────────────────────────
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwq5rkT8azBlx9R35wk1tM3VRpGY4WQwgn8zBNMHE23yCq6u95MLdU3sdiw1kKEVOM8Ug/exec';
+
+// ── Cánh hoa đào rơi từ trên xuống ──
 (function() {
   var wrap = document.getElementById('petals');
-
-  // SVG cánh hoa đào thật — hình trái tim có khía đỉnh
   var colors = [
-    'rgba(240,160,155,A)', // hồng đậm
-    'rgba(250,195,190,A)', // hồng nhạt
-    'rgba(235,140,145,A)', // hồng đỏ nhẹ
-    'rgba(252,210,205,A)', // hồng kem
+    'rgba(240,160,155,A)',
+    'rgba(250,195,190,A)',
+    'rgba(235,140,145,A)',
+    'rgba(252,210,205,A)',
   ];
-
-  // Path cánh hoa đào (1 cánh đơn, hình trái tim có khía trên đỉnh)
   var petalPaths = [
-    // cánh tròn đầy — hình đào cổ điển
     'M12,2 C12,2 8,0 5,3 C2,6 2,11 6,14 C8,16 12,18 12,18 C12,18 16,16 18,14 C22,11 22,6 19,3 C16,0 12,2 12,2 Z',
-    // cánh hơi dài hơn
     'M10,1 C10,1 6,0 4,4 C2,8 3,13 7,16 C9,18 10,20 10,20 C10,20 11,18 13,16 C17,13 18,8 16,4 C14,0 10,1 10,1 Z',
-    // cánh nhỏ hơn, tròn
     'M9,2 C9,2 5,1 3,4 C1,7 2,12 6,14 C8,15 9,17 9,17 C9,17 10,15 12,14 C16,12 17,7 15,4 C13,1 9,2 9,2 Z',
   ];
   var viewBoxes = ['0 0 24 20', '0 0 20 22', '0 0 18 19'];
   var sizes = [16, 14, 12, 18, 13];
-
   for (var i = 0; i < 18; i++) {
     var div = document.createElement('div');
     div.className = 'petal';
-
-    var ci    = i % colors.length;
-    var pi    = i % petalPaths.length;
-    var sz    = sizes[i % sizes.length];
+    var ci = i % colors.length;
+    var pi = i % petalPaths.length;
+    var sz = sizes[i % sizes.length];
     var alpha = (0.55 + Math.random() * 0.35).toFixed(2);
     var color = colors[ci].replace('A', alpha);
-
-    div.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="' + viewBoxes[pi] + '" fill="none" xmlns="http://www.w3.org/2000/svg">'
-      + '<path d="' + petalPaths[pi] + '" fill="' + color + '"/>'
-      + '</svg>';
-
-    // rơi từ trên xuống: top âm, rải đều ngang
-    div.style.left   = (Math.random() * 105 - 2) + '%';
-    div.style.top    = '-30px';
+    div.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="' + viewBoxes[pi] + '" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="' + petalPaths[pi] + '" fill="' + color + '"/></svg>';
+    div.style.left = (Math.random() * 105 - 2) + '%';
+    div.style.top = '-30px';
     div.style.animationDuration = (6 + Math.random() * 6) + 's';
-    div.style.animationDelay    = (Math.random() * 10) + 's';
+    div.style.animationDelay = (Math.random() * 10) + 's';
     wrap.appendChild(div);
   }
 })();
 
+// ── Tags ──
 document.querySelectorAll('.tag').forEach(function(tag) {
   tag.addEventListener('click', function() {
     var name = this.dataset.name;
@@ -678,10 +644,31 @@ document.querySelectorAll('.tag').forEach(function(tag) {
   });
 });
 
+// Quan hệ — Khác
 document.getElementById('tag-quan-he-khac').addEventListener('click', function() {
   var inp = document.getElementById('quan_he_khac');
   setTimeout(function() {
     var isOn = document.getElementById('tag-quan-he-khac').classList.contains('on');
+    inp.style.display = isOn ? 'block' : 'none';
+    if (!isOn) inp.value = '';
+  }, 10);
+});
+
+// Kết truyện — Khác
+document.getElementById('tag-ket-khac').addEventListener('click', function() {
+  var inp = document.getElementById('ket_truyen_khac');
+  setTimeout(function() {
+    var isOn = document.getElementById('tag-ket-khac').classList.contains('on');
+    inp.style.display = isOn ? 'block' : 'none';
+    if (!isOn) inp.value = '';
+  }, 10);
+});
+
+// Mood — Khác
+document.getElementById('tag-mood-khac').addEventListener('click', function() {
+  var inp = document.getElementById('mood_khac');
+  setTimeout(function() {
+    var isOn = document.getElementById('tag-mood-khac').classList.contains('on');
     inp.style.display = isOn ? 'block' : 'none';
     if (!isOn) inp.value = '';
   }, 10);
@@ -709,8 +696,7 @@ document.getElementById('add-excerpt').addEventListener('click', function() {
   if (excerptCount >= 5) this.style.display = 'none';
 });
 
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwq5rkT8azBlx9R35wk1tM3VRpGY4WQwgn8zBNMHE23yCq6u95MLdU3sdiw1kKEVOM8Ug/exec';
-
+// ── Submit ──
 document.getElementById('main-form').addEventListener('submit', function(e) {
   e.preventDefault();
   var form = this;
@@ -718,10 +704,18 @@ document.getElementById('main-form').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Đang gửi...';
 
-  // Chuyển FormData thành JSON object
   var fd = new FormData(form);
   var data = {};
   fd.forEach(function(value, key) { data[key] = value; });
+
+  // Gộp mood_khac vào mood nếu có
+  if (data['mood_khac']) {
+    data['mood'] = (data['mood'] ? data['mood'] + ', ' : '') + data['mood_khac'];
+  }
+  // Gộp ket_truyen_khac vào ket_truyen nếu có
+  if (data['ket_truyen_khac']) {
+    data['ket_truyen'] = data['ket_truyen_khac'];
+  }
 
   fetch(SCRIPT_URL, {
     method: 'POST',
@@ -746,6 +740,8 @@ function resetForm() {
     var el = document.getElementById(id); if (el) el.value = '';
   });
   document.getElementById('quan_he_khac').style.display = 'none';
+  document.getElementById('mood_khac').style.display = 'none';
+  document.getElementById('ket_truyen_khac').style.display = 'none';
   var list = document.getElementById('excerpts');
   while (list.children.length > 2) list.lastChild.remove();
   excerptCount = 2;
